@@ -1,6 +1,8 @@
 // Every year that is exactly divisible by four is a leap year, except for years that are exactly divisible by 100, 
 // but these centurial years are leap years if they are exactly divisible by 400.
 
+// Usage: q leapYear.q -year [number]
+
 args:.Q.opt .z.x;
 
 isLeapYear:{[year]
