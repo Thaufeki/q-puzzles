@@ -27,3 +27,8 @@ simTrades
 // To simplify the question, it is assumed that open/close auction trades are ALWAYS present. 
 // The function genTrades above simulates 10,002 trades. Note that each trade has up to two sale condition codes. 
 // Find the total volume between the two auction trades, inclusively.
+
+//Just the volume of the 2 records?
+// Yeah that's it
+
+select sum volume from simTrades where any each saleCondition like\: "*[O6]*"
