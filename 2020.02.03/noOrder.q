@@ -29,3 +29,15 @@ simOrders:genOrders[5000;-314159;openTime;closeTime];
 //  11:08:07.079 	00:00:05.682
 //  12:30:43.199 	00:00:08.152
 //  15:29:06.359 	00:00:08.213
+
+select startTime, periodLength from (update startTime:exitT[i-1], periodLength:subT[i]-exitT[i-1] from simOrders) where periodLength>0
+
+// Actual answer
+// The 'maxs' is what I was really lacking, max up until that point
+// I knew my answer didn't work because I didn't necessarily have the max time at any point
+// at least I had the idea, didn't know about 'maxs' function
+
+times:update maxT:maxs exitT from simOrders;
+times:update noOrderDur:subT-prev maxT from times;
+times:update noOrderDur:subT-openTime from times where null noOrderDur;
+select startTime:`time$subT-noOrderDur,periodLength:`time$noOrderDur from times where noOrderDur>0
