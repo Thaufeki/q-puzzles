@@ -34,3 +34,9 @@ nasdaqlisted:`symbol`securityName`marketCategory`isTestIssue`lotSize`isETF xcol(
 // isTestIssue   | b    
 // lotSize       | j    
 // isETF         | b
+
+//Missed that there were fields we didn't want
+// so actual sol is:
+nasdaqlisted:`symbol`securityName`marketCategory`isTestIssue`lotSize`isETF xcol("sssb jb ";enlist"|")0: `:nasdaqlisted.txt;
+// spaces for fields we're ignoring
+// did not know you could do that
